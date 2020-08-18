@@ -39,7 +39,7 @@
             // lbl_TimeRemaining
             // 
             this.lbl_TimeRemaining.AutoSize = true;
-            this.lbl_TimeRemaining.Location = new System.Drawing.Point(12, 86);
+            this.lbl_TimeRemaining.Location = new System.Drawing.Point(206, 240);
             this.lbl_TimeRemaining.Name = "lbl_TimeRemaining";
             this.lbl_TimeRemaining.Size = new System.Drawing.Size(146, 13);
             this.lbl_TimeRemaining.TabIndex = 0;
@@ -47,7 +47,7 @@
             // 
             // pb_TimeRemaining
             // 
-            this.pb_TimeRemaining.Location = new System.Drawing.Point(12, 102);
+            this.pb_TimeRemaining.Location = new System.Drawing.Point(206, 256);
             this.pb_TimeRemaining.Name = "pb_TimeRemaining";
             this.pb_TimeRemaining.Size = new System.Drawing.Size(479, 23);
             this.pb_TimeRemaining.TabIndex = 1;
@@ -55,9 +55,9 @@
             // 
             // btn_CancelBreak
             // 
-            this.btn_CancelBreak.Location = new System.Drawing.Point(12, 131);
+            this.btn_CancelBreak.Location = new System.Drawing.Point(206, 285);
             this.btn_CancelBreak.Name = "btn_CancelBreak";
-            this.btn_CancelBreak.Size = new System.Drawing.Size(479, 23);
+            this.btn_CancelBreak.Size = new System.Drawing.Size(479, 56);
             this.btn_CancelBreak.TabIndex = 2;
             this.btn_CancelBreak.Text = "Cancel Break";
             this.btn_CancelBreak.UseVisualStyleBackColor = true;
@@ -71,9 +71,10 @@
             // lbl_TimeLeft
             // 
             this.lbl_TimeLeft.AutoSize = true;
-            this.lbl_TimeLeft.Location = new System.Drawing.Point(164, 86);
+            this.lbl_TimeLeft.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_TimeLeft.Location = new System.Drawing.Point(416, 113);
             this.lbl_TimeLeft.Name = "lbl_TimeLeft";
-            this.lbl_TimeLeft.Size = new System.Drawing.Size(10, 13);
+            this.lbl_TimeLeft.Size = new System.Drawing.Size(20, 25);
             this.lbl_TimeLeft.TabIndex = 3;
             this.lbl_TimeLeft.Text = "-";
             // 
@@ -81,14 +82,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(503, 233);
+            this.ClientSize = new System.Drawing.Size(891, 527);
             this.ControlBox = false;
             this.Controls.Add(this.lbl_TimeLeft);
             this.Controls.Add(this.btn_CancelBreak);
             this.Controls.Add(this.pb_TimeRemaining);
             this.Controls.Add(this.lbl_TimeRemaining);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmReminder";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Please take a break from your screen now";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.frmReminder_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

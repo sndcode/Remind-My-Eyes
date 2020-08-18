@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.grpSettings = new System.Windows.Forms.GroupBox();
+            this.lbl_TimeLeft = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.lbl_TimeLeft_Mins = new System.Windows.Forms.Label();
             this.txt_Seconds_Duration = new System.Windows.Forms.TextBox();
             this.txt_Minutes_Duration = new System.Windows.Forms.TextBox();
             this.lbl_Minutes = new System.Windows.Forms.Label();
@@ -45,15 +45,19 @@
             this.btn_Start = new System.Windows.Forms.Button();
             this.btn_Stop = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.lbl_TimeLeft_Secs = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutRemindMeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.grpSettings.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpSettings
             // 
-            this.grpSettings.Controls.Add(this.lbl_TimeLeft_Secs);
+            this.grpSettings.Controls.Add(this.lbl_TimeLeft);
             this.grpSettings.Controls.Add(this.label1);
-            this.grpSettings.Controls.Add(this.lbl_TimeLeft_Mins);
             this.grpSettings.Controls.Add(this.txt_Seconds_Duration);
             this.grpSettings.Controls.Add(this.txt_Minutes_Duration);
             this.grpSettings.Controls.Add(this.lbl_Minutes);
@@ -62,12 +66,21 @@
             this.grpSettings.Controls.Add(this.lbl_DurationTime);
             this.grpSettings.Controls.Add(this.txt_Minutes_BreakTime);
             this.grpSettings.Controls.Add(this.lbl_BreakTime);
-            this.grpSettings.Location = new System.Drawing.Point(12, 12);
+            this.grpSettings.Location = new System.Drawing.Point(12, 33);
             this.grpSettings.Name = "grpSettings";
             this.grpSettings.Size = new System.Drawing.Size(345, 121);
             this.grpSettings.TabIndex = 0;
             this.grpSettings.TabStop = false;
             this.grpSettings.Text = "Settings";
+            // 
+            // lbl_TimeLeft
+            // 
+            this.lbl_TimeLeft.AutoSize = true;
+            this.lbl_TimeLeft.Location = new System.Drawing.Point(176, 96);
+            this.lbl_TimeLeft.Name = "lbl_TimeLeft";
+            this.lbl_TimeLeft.Size = new System.Drawing.Size(31, 13);
+            this.lbl_TimeLeft.TabIndex = 8;
+            this.lbl_TimeLeft.Text = "0000";
             // 
             // label1
             // 
@@ -77,15 +90,6 @@
             this.label1.Size = new System.Drawing.Size(130, 13);
             this.label1.TabIndex = 7;
             this.label1.Text = "Time left until next pause :";
-            // 
-            // lbl_TimeLeft_Mins
-            // 
-            this.lbl_TimeLeft_Mins.AutoSize = true;
-            this.lbl_TimeLeft_Mins.Location = new System.Drawing.Point(176, 96);
-            this.lbl_TimeLeft_Mins.Name = "lbl_TimeLeft_Mins";
-            this.lbl_TimeLeft_Mins.Size = new System.Drawing.Size(31, 13);
-            this.lbl_TimeLeft_Mins.TabIndex = 3;
-            this.lbl_TimeLeft_Mins.Text = "0000";
             // 
             // txt_Seconds_Duration
             // 
@@ -149,7 +153,7 @@
             // lbl_BreakTime
             // 
             this.lbl_BreakTime.AutoSize = true;
-            this.lbl_BreakTime.Location = new System.Drawing.Point(26, 35);
+            this.lbl_BreakTime.Location = new System.Drawing.Point(26, 38);
             this.lbl_BreakTime.Name = "lbl_BreakTime";
             this.lbl_BreakTime.Size = new System.Drawing.Size(104, 13);
             this.lbl_BreakTime.TabIndex = 0;
@@ -157,7 +161,7 @@
             // 
             // btn_Save
             // 
-            this.btn_Save.Location = new System.Drawing.Point(93, 139);
+            this.btn_Save.Location = new System.Drawing.Point(93, 160);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(75, 23);
             this.btn_Save.TabIndex = 0;
@@ -167,7 +171,7 @@
             // 
             // btn_Exit
             // 
-            this.btn_Exit.Location = new System.Drawing.Point(12, 139);
+            this.btn_Exit.Location = new System.Drawing.Point(12, 160);
             this.btn_Exit.Name = "btn_Exit";
             this.btn_Exit.Size = new System.Drawing.Size(75, 23);
             this.btn_Exit.TabIndex = 1;
@@ -177,7 +181,7 @@
             // 
             // btn_Start
             // 
-            this.btn_Start.Location = new System.Drawing.Point(282, 139);
+            this.btn_Start.Location = new System.Drawing.Point(282, 160);
             this.btn_Start.Name = "btn_Start";
             this.btn_Start.Size = new System.Drawing.Size(75, 23);
             this.btn_Start.TabIndex = 2;
@@ -187,7 +191,7 @@
             // 
             // btn_Stop
             // 
-            this.btn_Stop.Location = new System.Drawing.Point(201, 139);
+            this.btn_Stop.Location = new System.Drawing.Point(201, 160);
             this.btn_Stop.Name = "btn_Stop";
             this.btn_Stop.Size = new System.Drawing.Size(75, 23);
             this.btn_Stop.TabIndex = 4;
@@ -200,26 +204,57 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // lbl_TimeLeft_Secs
+            // menuStrip1
             // 
-            this.lbl_TimeLeft_Secs.AutoSize = true;
-            this.lbl_TimeLeft_Secs.Location = new System.Drawing.Point(238, 96);
-            this.lbl_TimeLeft_Secs.Name = "lbl_TimeLeft_Secs";
-            this.lbl_TimeLeft_Secs.Size = new System.Drawing.Size(31, 13);
-            this.lbl_TimeLeft_Secs.TabIndex = 8;
-            this.lbl_TimeLeft_Secs.Text = "0000";
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(371, 24);
+            this.menuStrip1.TabIndex = 5;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.updateToolStripMenuItem,
+            this.infoToolStripMenuItem,
+            this.aboutRemindMeToolStripMenuItem});
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.aboutToolStripMenuItem.Text = "About";
+            // 
+            // updateToolStripMenuItem
+            // 
+            this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
+            this.updateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.updateToolStripMenuItem.Text = "Update";
+            // 
+            // infoToolStripMenuItem
+            // 
+            this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
+            this.infoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.infoToolStripMenuItem.Text = "Info";
+            // 
+            // aboutRemindMeToolStripMenuItem
+            // 
+            this.aboutRemindMeToolStripMenuItem.Name = "aboutRemindMeToolStripMenuItem";
+            this.aboutRemindMeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutRemindMeToolStripMenuItem.Text = "About RemindMe";
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(371, 176);
+            this.ClientSize = new System.Drawing.Size(371, 200);
             this.Controls.Add(this.btn_Start);
             this.Controls.Add(this.btn_Stop);
             this.Controls.Add(this.btn_Exit);
             this.Controls.Add(this.btn_Save);
             this.Controls.Add(this.grpSettings);
+            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "frmMain";
             this.ShowIcon = false;
@@ -227,7 +262,10 @@
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.grpSettings.ResumeLayout(false);
             this.grpSettings.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -245,11 +283,15 @@
         private System.Windows.Forms.Button btn_Save;
         private System.Windows.Forms.Button btn_Exit;
         private System.Windows.Forms.Button btn_Start;
-        private System.Windows.Forms.Label lbl_TimeLeft_Mins;
         private System.Windows.Forms.Button btn_Stop;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lbl_TimeLeft_Secs;
+        private System.Windows.Forms.Label lbl_TimeLeft;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem infoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutRemindMeToolStripMenuItem;
     }
 }
 

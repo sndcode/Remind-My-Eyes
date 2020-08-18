@@ -38,6 +38,7 @@ namespace RemindMyEyes
             pb_TimeRemaining.Maximum = totaltime;
             pb_TimeRemaining.Value  = totaltime;
             timer1.Start();
+
             BlockInput(true);
             this.TopMost = true;
             this.BringToFront();
@@ -48,18 +49,28 @@ namespace RemindMyEyes
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            totaltimeleft -= 1;
-            if (totaltimeleft < 0) 
+            
+            if (totaltimeleft > 0) 
             {
                 pb_TimeRemaining.Value = totaltimeleft; 
             }
-            lbl_TimeLeft.Text = totaltimeleft.ToString();
+            else if(totaltimeleft < 0)
+            {
+                totaltimeleft = 1;
+            }
+
+            // https://stackoverflow.com/a/3665061
+            var timespan = TimeSpan.FromSeconds(totaltimeleft);
+            lbl_TimeLeft.Text = (timespan.ToString(@"mm\:ss"));
+
             if(totaltimeleft == 0)
             {
                 this.Hide();
                 BlockInput(false);
                 frmMain.enabled = true;
+                timer1.Stop();
             }
+            totaltimeleft -= 1;
         }
 
         private void btn_CancelBreak_Click(object sender, EventArgs e)
@@ -77,7 +88,7 @@ namespace RemindMyEyes
                 NativeMethods.BlockInput(false);
             }
             
-        }//vhttps://stackoverflow.com/questions/586547/how-can-i-block-keyboard-and-mouse-input-in-c
+        }//https://stackoverflow.com/questions/586547/how-can-i-block-keyboard-and-mouse-input-in-c
         public partial class NativeMethods
         {
 

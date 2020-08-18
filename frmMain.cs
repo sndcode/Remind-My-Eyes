@@ -17,7 +17,9 @@ namespace RemindMyEyes
         public static int seconds_left;
         public static bool enabled = false;
         public static DateTime starttime;
-        public static string settingsfile_path = "C:\\users\\" + Environment.UserName + "\\AppData\\Roaming\\remindme.ini";
+        public static string settingsfile_path = "C:\\users\\" 
+            + Environment.UserName + "\\AppData\\Roaming\\remindme.ini";
+
         public frmMain()
         {
             InitializeComponent();
@@ -85,7 +87,8 @@ namespace RemindMyEyes
             timespan_minutes = Convert.ToInt32(txt_Minutes_BreakTime.Text);
             timespan_seconds = Convert.ToInt32(txt_Seconds_BreakTime.Text);
 
-            this.WindowState = FormWindowState.Minimized;
+            //this.WindowState = FormWindowState.Minimized;
+
             enabled = true;
             timer1.Enabled = true;
             int minutestoseconds = duration_minutes * 60;
@@ -123,10 +126,10 @@ namespace RemindMyEyes
                     int totaltime = minutestoseconds + seconds;
                     seconds_left = totaltime;
                 }
-                int itimeleft = seconds_left / 60;
-                string stimeleft = itimeleft.ToString();
-                lbl_TimeLeft_Mins.Text = stimeleft + " Minutes";
-                lbl_TimeLeft_Secs.Text = seconds_left + " Seconds";
+
+                // https://stackoverflow.com/a/3665061
+                var timespan = TimeSpan.FromSeconds(seconds_left);
+                lbl_TimeLeft.Text = (timespan.ToString(@"mm\:ss"));
 
                 seconds_left -= 1;
                 if (seconds_left == 0)
